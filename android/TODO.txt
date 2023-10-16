@@ -2,3 +2,4 @@ Buổi 1: Ngày 16/10/2023
 Hoàn thiện login form + Setup project Flutter cơ bản chạy được trong cái Zapp fix lỗi Firebase default trong Br.
 Quyết định đăng ký đề tài là nhóm clone lại App giao đồ ăn.
 https://github.com/Fluorurine/CT474Final
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
