@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1072627021059",
+    "project_id": "ct484-final",
+    "storage_bucket": "ct484-final.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1072627021059:android:8476fadc2ba6d93777a536",
+        "android_client_info": {
+          "package_name": "com.example.ct484_final"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAS2fZOdvaSBdq8RIMjre5p9_DRnHWVs3o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
