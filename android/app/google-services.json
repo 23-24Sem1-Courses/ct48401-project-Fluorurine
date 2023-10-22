@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "1072627021059",
+    "firebase_url": "https://ct484-final-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "ct484-final",
     "storage_bucket": "ct484-final.appspot.com"
   },
@@ -12,7 +13,20 @@
           "package_name": "com.example.ct484_final"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "1072627021059-93ho8dfvovak9tavpcqkn7h7uk8gellq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ct484_final",
+            "certificate_hash": "5dde58cc4e6b190cbc513ae28cdda7e53000801b"
+          }
+        },
+        {
+          "client_id": "1072627021059-jp1fj7ibiv1r872vcgum79ponkcb6u67.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAS2fZOdvaSBdq8RIMjre5p9_DRnHWVs3o"
@@ -20,7 +34,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1072627021059-jp1fj7ibiv1r872vcgum79ponkcb6u67.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

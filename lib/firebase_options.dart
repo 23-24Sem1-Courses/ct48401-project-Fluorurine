@@ -13,7 +13,7 @@ import 'package:flutter/foundation.dart'
 /// await Firebase.initializeApp(
 ///   options: DefaultFirebaseOptions.currentPlatform,
 /// );
-
+/// ```
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
@@ -57,6 +57,7 @@ class DefaultFirebaseOptions {
     appId: '1:1072627021059:android:8476fadc2ba6d93777a536',
     messagingSenderId: '1072627021059',
     projectId: 'ct484-final',
+    databaseURL: 'https://ct484-final-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'ct484-final.appspot.com',
   );
 }
