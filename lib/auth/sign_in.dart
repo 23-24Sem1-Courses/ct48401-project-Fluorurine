@@ -25,7 +25,6 @@ class SignIn extends StatelessWidget {
       accessToken: googleAuth?.accessToken,
       idToken: googleAuth?.idToken,
     );
-    print(credential);
     // Once signed in, return the UserCredential
     return await FirebaseAuth.instance.signInWithCredential(credential);
   }
@@ -74,8 +73,10 @@ class SignIn extends StatelessWidget {
                             // final userCredential = await signInWithGoogle();
                             final userData = await signInWithGoogle();
                             final user1 = userData.user;
-
                             print(user1);
+                            // Navigator.push(MaterialPageRoute(
+                            // builder: (context) => SettingsPage()));
+                            //TODO: If user not null navigate to home page
                           } catch (e) {
                             print(e);
                             rethrow;
