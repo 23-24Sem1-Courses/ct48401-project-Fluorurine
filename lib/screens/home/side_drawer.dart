@@ -1,16 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/config/colors.dart';
+import 'package:ct484_final/services/user_provider.dart';
+import 'package:ct484_final/screens/home/home_screen.dart';
+import 'package:ct484_final/screens/my_profile/my_profile.dart';
+import 'package:ct484_final/screens/review_cart/review_cart.dart';
+import 'package:ct484_final/screens/wishList/wish_list.dart';
 
 class SideDrawer extends StatefulWidget {
-  UserProvider userProvider;
-  DrawerSide({this.userProvider});
-  const SideDrawer({super.key});
+  final UserProvider userProvider;
 
+  const SideDrawer({super.key, required this.userProvider});
   @override
   _DrawerSideState createState() => _DrawerSideState();
 }
 
-class _DrawerSideState extends State<DrawerSide> {
-  Widget listTile({String title, IconData iconData, Function onTap}) {
+class _DrawerSideState extends State<SideDrawer> {
+  Widget listTile(
+      // onTap no parameter and dynamic return value must use Function()?
+      {required String title,
+      required IconData iconData,
+      Function()? onTap}) {
     return SizedBox(
       height: 50,
       child: ListTile(
@@ -27,7 +36,6 @@ class _DrawerSideState extends State<DrawerSide> {
     );
   }
 
-// Is drawer Componet that divided list view into the first part is row with user profile and the second part is list of drawer. The user profile and data can be pull from
   @override
   Widget build(BuildContext context) {
     var userData = widget.userProvider.currentUserData;
@@ -77,7 +85,7 @@ class _DrawerSideState extends State<DrawerSide> {
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => HomeScreen(),
+                    builder: (context) => const HomeScreen(),
                   ),
                 );
               },
