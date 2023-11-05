@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/config/colors.dart';
+import 'package:ct484_final/config/colors.dart';
 import 'package:ct484_final/services/user_provider.dart';
 import 'package:ct484_final/screens/home/home_screen.dart';
-import 'package:ct484_final/screens/my_profile/my_profile.dart';
-import 'package:ct484_final/screens/review_cart/review_cart.dart';
-import 'package:ct484_final/screens/wishList/wish_list.dart';
+import 'package:ct484_final/screens/profile_screen/profile_screen.dart';
+import 'package:ct484_final/screens/cart/cart_review.dart';
+// import 'package:ct484_final/screens/wishList/wish_list.dart';
 
+// This is drawer side that use at the side of home screen
 class SideDrawer extends StatefulWidget {
   final UserProvider userProvider;
 
@@ -96,7 +97,7 @@ class _DrawerSideState extends State<SideDrawer> {
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => ReviewCart(),
+                    builder: (context) => const CartReview(),
                   ),
                 );
               },
@@ -108,7 +109,7 @@ class _DrawerSideState extends State<SideDrawer> {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) =>
-                        MyProfile(userProvider: widget.userProvider),
+                        ProfileScreen(userProvider: widget.userProvider),
                   ),
                 );
               },
