@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/config/colors.dart';
+import 'package:ct484_final/config/colors.dart';
 import 'package:ct484_final/services/product_provider.dart';
 import 'package:ct484_final/services/user_provider.dart';
-import 'package:food_app/screens/product_overview/product_overview.dart';
-import 'package:food_app/screens/home/singal_product.dart';
-import 'package:food_app/screens/review_cart/review_cart.dart';
-import 'package:food_app/screens/search/search.dart';
+import 'package:ct484_final/screens/product_overview/product_overview.dart';
+import 'package:ct484_final/screens/home/home_product.dart';
+import 'package:ct484_final/screens/cart/cart_review.dart';
+import 'package:ct484_final/screens/search/search.dart';
 import 'package:provider/provider.dart';
 import 'side_drawer.dart';
 
@@ -52,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Row(
             children: productProvider.getHerbsProductDataList.map(
               (herbsProductData) {
-                return SingalProduct(
+                return HomeProduct(
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
@@ -115,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Row(
             children: productProvider.getFreshProductDataList.map(
               (freshProductData) {
-                return SingalProduct(
+                return HomeProduct(
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
@@ -175,7 +175,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Row(
             children: productProvider.getRootProductDataList.map(
               (rootProductData) {
-                return SingalProduct(
+                return HomeProduct(
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
@@ -253,7 +253,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => ReviewCart(),
+                    builder: (context) => CartReview(),
                   ),
                 );
               },

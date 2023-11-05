@@ -4,7 +4,7 @@ import 'package:ct484_final/services/user_provider.dart';
 import 'package:ct484_final/screens/home/home_screen.dart';
 import 'package:ct484_final/screens/profile_screen/profile_screen.dart';
 import 'package:ct484_final/screens/cart/cart_review.dart';
-// import 'package:ct484_final/screens/wishList/wish_list.dart';
+import 'package:ct484_final/screens/wish_list/wish_list.dart';
 
 // This is drawer side that use at the side of home screen
 class SideDrawer extends StatefulWidget {
@@ -97,7 +97,7 @@ class _DrawerSideState extends State<SideDrawer> {
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => const CartReview(),
+                    builder: (context) => CartReview(),
                   ),
                 );
               },
@@ -123,7 +123,7 @@ class _DrawerSideState extends State<SideDrawer> {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => WishLsit(),
+                      builder: (context) => const WishLsit(),
                     ),
                   );
                 }),
