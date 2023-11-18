@@ -1,8 +1,12 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:ct484_final/screens/home/home_screen.dart';
+import 'package:ct484_final/services/test_provider.dart';
+import 'package:ct484_final/services/user_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:provider/provider.dart';
 import 'package:sign_button/sign_button.dart';
 
 class SignIn extends StatelessWidget {
@@ -14,7 +18,7 @@ class SignIn extends StatelessWidget {
     final GoogleSignInAccount? googleUser = await GoogleSignIn(
       scopes: ['email'],
     ).signIn();
-    print("sign in with google");
+    print("Sign in with google");
 
     // Obtain the auth details from the request
     final GoogleSignInAuthentication? googleAuth =
@@ -70,18 +74,37 @@ class SignIn extends StatelessWidget {
                         onPressed: () async {
                           print("click");
                           try {
-                            // final userCredential = await signInWithGoogle();
+                            // TestProvider testprovider =
+                            //     Provider.of<TestProvider>(context,
+                            //         listen: false);
+                            // testprovider.test();
+                            UserProvider userProvider =
+                                Provider.of<UserProvider>(context,
+                                    listen: false);
+
                             final userData = await signInWithGoogle();
-                            final user1 = userData.user;
-                            print(user1);
-                            // Navigator.push(MaterialPageRoute(
-                            // builder: (context) => SettingsPage()));
-                            //TODO: If user not null navigate to home page
+                            final user = userData.user;
+                            print(user);
+                            if (user == null) {
+                              return;
+                            }
+                            userProvider.addUserData(
+                              currentUser: user,
+                              userEmail: user.email,
+                              userImage: user.photoURL,
+                              userName: user.displayName,
+                            );
+
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => HomeScreen()));
                           } catch (e) {
                             print(e);
                             rethrow;
                           }
                         }),
+                    // TODO: If user not null navigate to home page
                     SignInButton(
                         buttonType: ButtonType.facebook,
                         onPressed: () {

@@ -55,6 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 return HomeProduct(
                   onTap: () {
                     Navigator.of(context).push(
+                      // Preview each of the data and use it in the product overview. wish list will use those infomation to paycheck and test the project.
                       MaterialPageRoute(
                         builder: (context) => ProductOverview(
                           productId: herbsProductData.productId,

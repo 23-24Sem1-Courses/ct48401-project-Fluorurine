@@ -14,9 +14,11 @@ class ProductProvider with ChangeNotifier {
       productId: element.get("productId"),
       productUnit: element.get("productUnit"),
     );
+    // The search list will return all the data from the database
     search.add(productModel);
   }
 
+  // Renember to limit the data to fix the size of homepage
   /////////////// herbsProduct ///////////////////////////////
   List<ProductModel> herbsProductList = [];
 

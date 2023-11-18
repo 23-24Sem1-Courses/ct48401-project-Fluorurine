@@ -6,7 +6,7 @@ import 'package:ct484_final/models/user_model.dart';
 class UserProvider with ChangeNotifier {
   void addUserData({
     required currentUser,
-    required String userName,
+    String? userName,
     String? userImage,
     String? userEmail,
   }) async {
