@@ -42,7 +42,7 @@ class _DrawerSideState extends State<SideDrawer> {
     var userData = widget.userProvider.currentUserData;
     return Drawer(
       child: Container(
-        color: primaryColor,
+        color: Colors.blue[100],
         child: ListView(
           children: [
             DrawerHeader(
@@ -54,7 +54,7 @@ class _DrawerSideState extends State<SideDrawer> {
                       radius: 43,
                       backgroundColor: Colors.white54,
                       child: CircleAvatar(
-                        backgroundColor: Colors.yellow,
+                        backgroundColor: Colors.blue[300],
                         backgroundImage: NetworkImage(
                           userData.userImage ??
                               "https://s3.envato.com/files/328957910/vegi_thumb.png",

@@ -36,7 +36,7 @@ class MyProfileState extends State<ProfileScreen> {
     var userData = widget.userProvider.currentUserData;
 
     return Scaffold(
-      backgroundColor: primaryColor,
+      backgroundColor: Colors.blue[300],
       appBar: AppBar(
         elevation: 0.0,
         title: Text(
@@ -56,7 +56,7 @@ class MyProfileState extends State<ProfileScreen> {
             children: [
               Container(
                 height: 100,
-                color: primaryColor,
+                color: Colors.blue[300],
               ),
               Container(
                 height: 548,
@@ -76,9 +76,9 @@ class MyProfileState extends State<ProfileScreen> {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Container(
-                          width: 250,
+                          width: 280,
                           height: 80,
-                          padding: const EdgeInsets.only(left: 20),
+                          padding: const EdgeInsets.only(left: 0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
@@ -96,7 +96,10 @@ class MyProfileState extends State<ProfileScreen> {
                                   const SizedBox(
                                     height: 10,
                                   ),
-                                  Text(userData.userEmail),
+                                  Text(
+                                    userData.userEmail,
+                                    overflow: TextOverflow.clip,
+                                  ),
                                 ],
                               ),
                               CircleAvatar(
@@ -160,14 +163,14 @@ class MyProfileState extends State<ProfileScreen> {
             padding: const EdgeInsets.only(top: 40, left: 30),
             child: CircleAvatar(
               radius: 50,
-              backgroundColor: primaryColor,
+              backgroundColor: Colors.blue[300],
               child: CircleAvatar(
                   backgroundImage: NetworkImage(
                     userData.userImage ??
                         "https://s3.envato.com/files/328957910/vegi_thumb.png",
                   ),
                   radius: 45,
-                  backgroundColor: scaffoldBackgroundColor),
+                  backgroundColor: Colors.blue[300]),
             ),
           )
         ],
