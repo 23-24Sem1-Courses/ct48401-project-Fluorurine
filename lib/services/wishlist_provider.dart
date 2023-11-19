@@ -9,7 +9,7 @@ class WishListProvider with ChangeNotifier {
     required String wishListName,
     required var wishListPrice,
     required String wishListImage,
-    required int wishListQuantity,
+    int wishListQuantity = 0,
   }) {
     FirebaseFirestore.instance
         .collection("WishList")
@@ -42,6 +42,7 @@ class WishListProvider with ChangeNotifier {
         productImage: element.get("wishListImage"),
         productName: element.get("wishListName"),
         productPrice: element.get("wishListPrice"),
+        // productUnit: element.get("wishListUnit"),
         productQuantity: element.get("wishListQuantity"),
       );
       newList.add(productModel);

@@ -25,7 +25,7 @@ class _SearchState extends State<Search> {
     List<ProductModel> searchItemResult = searchItem(query);
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Search"),
+        title: const Text("Tìm kiếm"),
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -39,7 +39,7 @@ class _SearchState extends State<Search> {
       body: ListView(
         children: [
           const ListTile(
-            title: Text("Items"),
+            title: Text("Các kết quả"),
           ),
           Container(
             height: 52,
@@ -57,7 +57,7 @@ class _SearchState extends State<Search> {
                 ),
                 fillColor: const Color(0xffc2c2c2),
                 filled: true,
-                hintText: "Search for items in the store",
+                hintText: "Nhập dữ liệu để bắt đầu tìm kiếm",
                 suffixIcon: const Icon(Icons.search),
               ),
             ),
@@ -72,6 +72,8 @@ class _SearchState extends State<Search> {
                 productImage: data.productImage,
                 productName: data.productName,
                 productPrice: data.productPrice,
+                productId: data.productId,
+                productQuantity: data.productQuantity,
               );
             }).toList(),
           )

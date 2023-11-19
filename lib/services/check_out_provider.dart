@@ -116,9 +116,8 @@ class CheckoutProvider with ChangeNotifier {
 // TODO: This use too much null mabye fix it in the future
   addPlaceOderData({
     List<ReviewCartModel>? oderItemList,
-    var subTotal,
-    var address,
-    var shipping,
+    required double subTotal,
+    dynamic address,
   }) async {
     FirebaseFirestore.instance
         .collection("Order")
@@ -140,16 +139,7 @@ class CheckoutProvider with ChangeNotifier {
                   "orderQuantity": e.cartQuantity
                 })
             .toList(),
-        // "address": address
-        //     .map((e) => {
-        //           "orderTime": DateTime.now(),
-        //           "orderImage": e.cartImage,
-        //           "orderName": e.cartName,
-        //           "orderUnit": e.cartUnit,
-        //           "orderPrice": e.cartPrice,
-        //           "orderQuantity": e.cartQuantity
-        //         })
-        //     .toList(),
+        "address": address
       },
     );
   }

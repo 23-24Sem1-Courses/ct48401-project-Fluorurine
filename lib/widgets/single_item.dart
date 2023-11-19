@@ -1,3 +1,4 @@
+import 'package:ct484_final/screens/product_overview/product_overview.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:ct484_final/config/colors.dart';
@@ -9,17 +10,17 @@ class SingleItem extends StatefulWidget {
   bool isBool;
   String productImage;
   String productName;
-  bool wishList;
   int productPrice;
+  bool wishList;
   String productId;
   int productQuantity;
+  String productUnit;
   Function()? onDelete;
-  var productUnit;
   SingleItem(
       {super.key,
       this.productQuantity = 0,
       this.productId = "",
-      this.productUnit,
+      this.productUnit = "500 Gram",
       this.onDelete,
       this.isBool = false,
       required this.productImage,
@@ -28,10 +29,10 @@ class SingleItem extends StatefulWidget {
       this.wishList = false});
 
   @override
-  _SingleItemState createState() => _SingleItemState();
+  SingleItemState createState() => SingleItemState();
 }
 
-class _SingleItemState extends State<SingleItem> {
+class SingleItemState extends State<SingleItem> {
   late ReviewCartProvider reviewCartProvider;
 
   int count = 0;
@@ -53,11 +54,26 @@ class _SingleItemState extends State<SingleItem> {
           child: Row(
             children: [
               Expanded(
-                child: SizedBox(
-                  height: 90,
-                  child: Center(
-                    child: Image.network(
-                      widget.productImage,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      // Preview each of the data and use it in the product overview. wish list will use those infomation to paycheck and test the project.
+                      MaterialPageRoute(
+                        builder: (context) => ProductOverview(
+                          productId: widget.productId,
+                          productPrice: widget.productPrice,
+                          productName: widget.productName,
+                          productImage: widget.productImage,
+                        ),
+                      ),
+                    );
+                  },
+                  child: SizedBox(
+                    height: 90,
+                    child: Center(
+                      child: Image.network(
+                        widget.productImage,
+                      ),
                     ),
                   ),
                 ),
@@ -150,7 +166,7 @@ class _SingleItemState extends State<SingleItem> {
                                 ),
                               ),
                             )
-                          : Text(widget.productUnit)
+                          : Text(widget.productUnit),
                     ],
                   ),
                 ),

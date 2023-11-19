@@ -48,6 +48,17 @@ class UserProvider with ChangeNotifier {
     }
   }
 
+  void signOut() async {
+    await FirebaseAuth.instance.signOut();
+    currentData = UserModel(
+      userEmail: "",
+      userImage: "",
+      userName: "",
+      userUid: "",
+    );
+    notifyListeners();
+  }
+
   UserModel get currentUserData {
     return currentData;
   }

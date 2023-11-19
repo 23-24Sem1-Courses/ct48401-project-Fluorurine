@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 class ProductModel {
   String productName;
   String productImage;

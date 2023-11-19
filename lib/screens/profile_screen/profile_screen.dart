@@ -1,3 +1,5 @@
+import 'package:ct484_final/auth/sign_in.dart';
+import 'package:ct484_final/screens/check_out/delivery_detail/delivery_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:ct484_final/config/colors.dart';
 import 'package:ct484_final/services/user_provider.dart';
@@ -10,10 +12,10 @@ class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key, required this.userProvider});
 
   @override
-  _MyProfileState createState() => _MyProfileState();
+  MyProfileState createState() => MyProfileState();
 }
 
-class _MyProfileState extends State<ProfileScreen> {
+class MyProfileState extends State<ProfileScreen> {
   Widget listTile({required icon, required String title}) {
     return Column(
       children: [
@@ -38,7 +40,7 @@ class _MyProfileState extends State<ProfileScreen> {
       appBar: AppBar(
         elevation: 0.0,
         title: Text(
-          "My Profile",
+          "Trang cá nhân",
           style: TextStyle(
             fontSize: 18,
             color: textColor,
@@ -114,20 +116,41 @@ class _MyProfileState extends State<ProfileScreen> {
                         ),
                       ],
                     ),
-                    listTile(icon: Icons.shop_outlined, title: "My Orders"),
                     listTile(
-                        icon: Icons.location_on_outlined,
-                        title: "My Delivery Address"),
+                        icon: Icons.shop_outlined, title: "Đơn hàng của tôi"),
+                    GestureDetector(
+                      child: listTile(
+                          icon: Icons.location_on_outlined,
+                          title: "Địa chỉ liên hệ"),
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const DeliveryDetails()));
+                      },
+                    ),
                     listTile(
-                        icon: Icons.person_outline, title: "Refer A Friends"),
+                        icon: Icons.person_outline, title: "Đề xuất bạn bè"),
                     listTile(
                         icon: Icons.file_copy_outlined,
-                        title: "Terms & Conditions"),
+                        title: "Điều khoản và điểu kiện"),
                     listTile(
-                        icon: Icons.policy_outlined, title: "Privacy Policy"),
+                        icon: Icons.policy_outlined,
+                        title: "Chính sách dịch vu"),
                     listTile(icon: Icons.add_chart, title: "About"),
-                    listTile(
-                        icon: Icons.exit_to_app_outlined, title: "Log Out"),
+                    GestureDetector(
+                        child: listTile(
+                            icon: Icons.exit_to_app_outlined,
+                            title: "Đăng xuất"),
+                        onTap: () {
+                          widget.userProvider.signOut();
+                          // go back to login screen
+
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const SignIn()));
+                        }),
                   ],
                 ),
               )

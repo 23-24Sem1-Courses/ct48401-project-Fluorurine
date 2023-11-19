@@ -11,21 +11,21 @@ class Count extends StatefulWidget {
   String productImage;
   String productId;
   int productPrice;
-  var productUnit;
+  String productUnit;
 
   Count({
     super.key,
     required this.productName,
-    this.productUnit,
+    this.productUnit = "500  Gram",
     required this.productId,
     required this.productImage,
     required this.productPrice,
   });
   @override
-  _CountState createState() => _CountState();
+  CountState createState() => CountState();
 }
 
-class _CountState extends State<Count> {
+class CountState extends State<Count> {
   int count = 1;
   bool isTrue = false;
 
@@ -138,7 +138,7 @@ class _CountState extends State<Count> {
                   );
                 },
                 child: Text(
-                  "ADD",
+                  "Thêm",
                   style: TextStyle(color: primaryColor),
                 ),
               ),

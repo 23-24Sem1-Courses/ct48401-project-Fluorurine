@@ -8,7 +8,7 @@ class AddDeliverAddress extends StatefulWidget {
   const AddDeliverAddress({super.key});
 
   @override
-  _AddDeliverAddressState createState() => _AddDeliverAddressState();
+  AddDeliverAddressState createState() => AddDeliverAddressState();
 }
 
 enum AddressTypes {
@@ -17,7 +17,7 @@ enum AddressTypes {
   Other,
 }
 
-class _AddDeliverAddressState extends State<AddDeliverAddress> {
+class AddDeliverAddressState extends State<AddDeliverAddress> {
   AddressTypes? myType = AddressTypes.Home;
   @override
   Widget build(BuildContext context) {
@@ -61,43 +61,43 @@ class _AddDeliverAddressState extends State<AddDeliverAddress> {
         child: ListView(
           children: [
             CustomTextField(
-              labText: "First name",
+              labText: "Họ",
               controller: checkoutProvider.firstName,
             ),
             CustomTextField(
-              labText: "Last name",
+              labText: "Tên",
               controller: checkoutProvider.lastName,
             ),
             CustomTextField(
-              labText: "Mobile No",
+              labText: "Số điện thoại",
               controller: checkoutProvider.mobileNo,
             ),
             CustomTextField(
-              labText: "Alternate Mobile No",
+              labText: "Số điện thoại thay thế",
               controller: checkoutProvider.alternateMobileNo,
             ),
             CustomTextField(
-              labText: "Scoiety",
+              labText: "Tỉnh",
               controller: checkoutProvider.scoiety,
             ),
             CustomTextField(
-              labText: "Street",
+              labText: "Đường",
               controller: checkoutProvider.street,
             ),
             CustomTextField(
-              labText: "Landmark",
+              labText: "Só nhà",
               controller: checkoutProvider.landmark,
             ),
             CustomTextField(
-              labText: "City",
+              labText: "Thành phố",
               controller: checkoutProvider.city,
             ),
             CustomTextField(
-              labText: "Aera",
+              labText: "Khu vực",
               controller: checkoutProvider.aera,
             ),
             CustomTextField(
-              labText: "Pincode",
+              labText: "Mã PIN",
               controller: checkoutProvider.pincode,
             ),
             InkWell(
@@ -116,12 +116,12 @@ class _AddDeliverAddressState extends State<AddDeliverAddress> {
               color: Colors.black,
             ),
             const ListTile(
-              title: Text("Address Type*"),
+              title: Text("Loại địa chỉ*"),
             ),
             RadioListTile(
               value: AddressTypes.Home,
               groupValue: myType,
-              title: const Text("Home"),
+              title: const Text("Nhà riêng"),
               onChanged: (AddressTypes? value) {
                 setState(() {
                   myType = value;
@@ -135,7 +135,7 @@ class _AddDeliverAddressState extends State<AddDeliverAddress> {
             RadioListTile(
               value: AddressTypes.Work,
               groupValue: myType,
-              title: const Text("Work"),
+              title: const Text("Làm việc"),
               onChanged: (AddressTypes? value) {
                 setState(() {
                   myType = value;
@@ -149,7 +149,7 @@ class _AddDeliverAddressState extends State<AddDeliverAddress> {
             RadioListTile(
               value: AddressTypes.Other,
               groupValue: myType,
-              title: const Text("Other"),
+              title: const Text("Khác"),
               onChanged: (AddressTypes? value) {
                 setState(() {
                   myType = value;

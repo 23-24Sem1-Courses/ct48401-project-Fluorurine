@@ -11,21 +11,21 @@ class WishLsit extends StatefulWidget {
   const WishLsit({super.key});
 
   @override
-  _WishLsitState createState() => _WishLsitState();
+  WishLsitState createState() => WishLsitState();
 }
 
-class _WishLsitState extends State<WishLsit> {
+class WishLsitState extends State<WishLsit> {
   late WishListProvider wishListProvider;
   showAlertDialog(BuildContext context, ProductModel delete) {
     // set up the buttons
     Widget cancelButton = TextButton(
-      child: const Text("No"),
+      child: const Text("Không"),
       onPressed: () {
         Navigator.of(context).pop();
       },
     );
     Widget continueButton = TextButton(
-      child: const Text("Yes"),
+      child: const Text("Có"),
       onPressed: () {
         wishListProvider.deleteWishtList(delete.productId);
         Navigator.of(context).pop();
@@ -34,8 +34,9 @@ class _WishLsitState extends State<WishLsit> {
 
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
-      title: const Text("WishList Product"),
-      content: const Text("Are you devete on wishList Product?"),
+      title: const Text("Xóa sản phẩm"),
+      content: const Text(
+          "Bạn muốn xóa sản phẩm này trong danh sách mua hàng không?"),
       actions: [
         cancelButton,
         continueButton,
@@ -58,7 +59,7 @@ class _WishLsitState extends State<WishLsit> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "WishList",
+          "Danh sách mua hàng",
           style: TextStyle(color: textColor, fontSize: 18),
         ),
       ),

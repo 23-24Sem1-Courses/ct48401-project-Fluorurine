@@ -13,13 +13,13 @@ class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  HomeScreenState createState() => HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class HomeScreenState extends State<HomeScreen> {
   late ProductProvider productProvider;
 
-  Widget _buildHerbsProduct(context) {
+  Widget buildCat1Product(context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -28,20 +28,23 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text('Herbs Seasonings'),
+              const Text('Trà sữa',
+                  style: TextStyle(fontWeight: FontWeight.bold)),
               GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => Search(
-                        search: productProvider.getHerbsProductDataList,
+                        search: productProvider.getCat1ProductDataList,
                       ),
                     ),
                   );
                 },
                 child: const Text(
-                  'view all',
-                  style: TextStyle(color: Colors.grey),
+                  'Xem tất cả >>',
+                  style: TextStyle(
+                      color: Colors.black,
+                      decoration: TextDecoration.underline),
                 ),
               ),
             ],
@@ -50,27 +53,27 @@ class _HomeScreenState extends State<HomeScreen> {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: productProvider.getHerbsProductDataList.map(
-              (herbsProductData) {
+            children: productProvider.getCat1ProductDataList.map(
+              (cat1ProductData) {
                 return HomeProduct(
                   onTap: () {
                     Navigator.of(context).push(
                       // Preview each of the data and use it in the product overview. wish list will use those infomation to paycheck and test the project.
                       MaterialPageRoute(
                         builder: (context) => ProductOverview(
-                          productId: herbsProductData.productId,
-                          productPrice: herbsProductData.productPrice,
-                          productName: herbsProductData.productName,
-                          productImage: herbsProductData.productImage,
+                          productId: cat1ProductData.productId,
+                          productPrice: cat1ProductData.productPrice,
+                          productName: cat1ProductData.productName,
+                          productImage: cat1ProductData.productImage,
                         ),
                       ),
                     );
                   },
-                  productId: herbsProductData.productId,
-                  productPrice: herbsProductData.productPrice,
-                  productImage: herbsProductData.productImage,
-                  productName: herbsProductData.productName,
-                  productUnit: herbsProductData,
+                  productId: cat1ProductData.productId,
+                  productPrice: cat1ProductData.productPrice,
+                  productImage: cat1ProductData.productImage,
+                  productName: cat1ProductData.productName,
+                  productUnit: cat1ProductData,
                 );
               },
             ).toList(),
@@ -83,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildFreshProduct(context) {
+  Widget buildCat2Product(context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -92,20 +95,23 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text('Fresh Fruits'),
+              const Text('Thức ăn nhanh',
+                  style: TextStyle(fontWeight: FontWeight.bold)),
               GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => Search(
-                        search: productProvider.getFreshProductDataList,
+                        search: productProvider.getCat2ProductDataList,
                       ),
                     ),
                   );
                 },
                 child: const Text(
-                  'view all',
-                  style: TextStyle(color: Colors.grey),
+                  'Xem tất cả >>',
+                  style: TextStyle(
+                      color: Colors.black,
+                      decoration: TextDecoration.underline),
                 ),
               ),
             ],
@@ -114,26 +120,26 @@ class _HomeScreenState extends State<HomeScreen> {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: productProvider.getFreshProductDataList.map(
-              (freshProductData) {
+            children: productProvider.getCat2ProductDataList.map(
+              (cat2ProductData) {
                 return HomeProduct(
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) => ProductOverview(
-                          productId: freshProductData.productId,
-                          productImage: freshProductData.productImage,
-                          productName: freshProductData.productName,
-                          productPrice: freshProductData.productPrice,
+                          productId: cat2ProductData.productId,
+                          productImage: cat2ProductData.productImage,
+                          productName: cat2ProductData.productName,
+                          productPrice: cat2ProductData.productPrice,
                         ),
                       ),
                     );
                   },
-                  productId: freshProductData.productId,
-                  productImage: freshProductData.productImage,
-                  productName: freshProductData.productName,
-                  productPrice: freshProductData.productPrice,
-                  productUnit: freshProductData,
+                  productId: cat2ProductData.productId,
+                  productImage: cat2ProductData.productImage,
+                  productName: cat2ProductData.productName,
+                  productPrice: cat2ProductData.productPrice,
+                  productUnit: cat2ProductData,
                 );
               },
             ).toList(),
@@ -143,7 +149,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildRootProduct() {
+  Widget buildCat3Product() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -152,20 +158,23 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text('Root Vegetable'),
+              const Text('Combo lẩu nướng',
+                  style: TextStyle(fontWeight: FontWeight.bold)),
               GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => Search(
-                        search: productProvider.getRootProductDataList,
+                        search: productProvider.getCat3ProductDataList,
                       ),
                     ),
                   );
                 },
                 child: const Text(
-                  'view all',
-                  style: TextStyle(color: Colors.grey),
+                  'Xem tất cả >>',
+                  style: TextStyle(
+                      color: Colors.black,
+                      decoration: TextDecoration.underline),
                 ),
               ),
             ],
@@ -174,26 +183,26 @@ class _HomeScreenState extends State<HomeScreen> {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: productProvider.getRootProductDataList.map(
-              (rootProductData) {
+            children: productProvider.getCat3ProductDataList.map(
+              (cat3Productdata) {
                 return HomeProduct(
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) => ProductOverview(
-                          productId: rootProductData.productId,
-                          productImage: rootProductData.productImage,
-                          productName: rootProductData.productName,
-                          productPrice: rootProductData.productPrice,
+                          productId: cat3Productdata.productId,
+                          productImage: cat3Productdata.productImage,
+                          productName: cat3Productdata.productName,
+                          productPrice: cat3Productdata.productPrice,
                         ),
                       ),
                     );
                   },
-                  productId: rootProductData.productId,
-                  productImage: rootProductData.productImage,
-                  productName: rootProductData.productName,
-                  productPrice: rootProductData.productPrice,
-                  productUnit: rootProductData,
+                  productId: cat3Productdata.productId,
+                  productImage: cat3Productdata.productImage,
+                  productName: cat3Productdata.productName,
+                  productPrice: cat3Productdata.productPrice,
+                  productUnit: cat3Productdata,
                 );
               },
             ).toList(),
@@ -206,10 +215,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
-    ProductProvider initproductProvider = Provider.of(context, listen: false);
-    initproductProvider.fatchHerbsProductData();
-    initproductProvider.fatchFreshProductData();
-    initproductProvider.fatchRootProductData();
+    print("Here is the home screen");
+    ProductProvider initproductProvider =
+        Provider.of<ProductProvider>(context, listen: false);
+    initproductProvider.emptySearch();
+    initproductProvider.fetchCat1ProductData();
+    initproductProvider.fetchCat2ProductData();
+    initproductProvider.fetchCat3ProductData();
     super.initState();
   }
 
@@ -219,25 +231,26 @@ class _HomeScreenState extends State<HomeScreen> {
     UserProvider userProvider = Provider.of(context);
     userProvider.getUserData();
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 248, 238, 238),
       drawer: SideDrawer(
         userProvider: userProvider,
       ),
       appBar: AppBar(
         iconTheme: IconThemeData(color: textColor),
         title: Text(
-          'Home',
+          'Trang chủ',
           style: TextStyle(color: textColor, fontSize: 17),
         ),
         actions: [
           CircleAvatar(
             radius: 15,
-            backgroundColor: const Color(0xffd6d382),
+            backgroundColor: const Color.fromARGB(255, 243, 239, 113),
             child: IconButton(
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) =>
-                        Search(search: productProvider.gerAllProductSearch),
+                        Search(search: productProvider.getAllProductSearch),
                   ),
                 );
               },
@@ -308,7 +321,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               child: const Center(
                                 child: Text(
-                                  'Vegi',
+                                  'Deal',
                                   style: TextStyle(
                                     fontSize: 20,
                                     color: Colors.white,
@@ -324,7 +337,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                           Text(
-                            '30% Off',
+                            'Giảm 30%',
                             style: TextStyle(
                                 fontSize: 40,
                                 color: Colors.green[100],
@@ -333,7 +346,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           const Padding(
                             padding: EdgeInsets.only(left: 20),
                             child: Text(
-                              'On all vegetables products',
+                              'Cho các loại rau củ',
                               style: TextStyle(
                                 color: Colors.white,
                               ),
@@ -349,9 +362,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            _buildHerbsProduct(context),
-            _buildFreshProduct(context),
-            _buildRootProduct(),
+            buildCat1Product(context),
+            buildCat2Product(context),
+            buildCat3Product(),
           ],
         ),
       ),

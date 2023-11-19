@@ -1,3 +1,4 @@
+import 'package:ct484_final/screens/check_out/delivery_detail/delivery_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:ct484_final/config/colors.dart';
@@ -18,13 +19,13 @@ class CartReview extends StatelessWidget {
   showAlertDialog(BuildContext context, ReviewCartModel delete) {
     // set up the buttons
     Widget cancelButton = TextButton(
-      child: const Text("No"),
+      child: const Text("Không"),
       onPressed: () {
         Navigator.of(context).pop();
       },
     );
     Widget continueButton = TextButton(
-      child: const Text("Yes"),
+      child: const Text("Có"),
       onPressed: () {
         reviewCartProvider.reviewCartDataDelete(delete.cartId);
         Navigator.of(context).pop();
@@ -33,8 +34,8 @@ class CartReview extends StatelessWidget {
 
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
-      title: const Text("Cart Product"),
-      content: const Text("Are you devete on cartProduct?"),
+      title: const Text("Sản phẩm trong giỏ hàng"),
+      content: const Text("Bạn muốn xóa sản phẩm trong giỏ hàng chứ?"),
       actions: [
         cancelButton,
         continueButton,
@@ -56,7 +57,7 @@ class CartReview extends StatelessWidget {
     reviewCartProvider.getReviewCartData();
     return Scaffold(
       bottomNavigationBar: ListTile(
-        title: const Text("Total Aount"),
+        title: const Text("Tổng số lượng sản phẩm"),
         subtitle: Text(
           "\$ ${reviewCartProvider.getTotalPrice()}",
           style: TextStyle(
@@ -74,29 +75,30 @@ class CartReview extends StatelessWidget {
             ),
             onPressed: () {
               if (reviewCartProvider.getReviewCartDataList.isEmpty) {
-                Fluttertoast.showToast(msg: "No Cart Data Found");
+                Fluttertoast.showToast(
+                    msg: "Không có địa chỉ giao hàng được chọn");
               }
               Navigator.of(context).push(
                 MaterialPageRoute(
                   // TODO: here
                   // DeliveryDetails
-                  builder: (context) => const Placeholder(),
+                  builder: (context) => const DeliveryDetails(),
                 ),
               );
             },
-            child: const Text("Submit"),
+            child: const Text("Gủi"),
           ),
         ),
       ),
       appBar: AppBar(
         title: Text(
-          "Review Cart",
+          "Giỏ hàng",
           style: TextStyle(color: textColor, fontSize: 18),
         ),
       ),
       body: reviewCartProvider.getReviewCartDataList.isEmpty
           ? const Center(
-              child: Text("NO DATA"),
+              child: Text("Không có sản phẩm trong giỏ hàng"),
             )
           : ListView.builder(
               itemCount: reviewCartProvider.getReviewCartDataList.length,

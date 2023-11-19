@@ -82,7 +82,7 @@ class _DrawerSideState extends State<SideDrawer> {
             ),
             listTile(
               iconData: Icons.home_outlined,
-              title: "Home",
+              title: "Trang chủ",
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
@@ -93,7 +93,7 @@ class _DrawerSideState extends State<SideDrawer> {
             ),
             listTile(
               iconData: Icons.shop_outlined,
-              title: "Review Cart",
+              title: "Giỏ hàng",
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
@@ -104,7 +104,7 @@ class _DrawerSideState extends State<SideDrawer> {
             ),
             listTile(
               iconData: Icons.person_outlined,
-              title: "My Profile",
+              title: "Trang cá nhân",
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
@@ -115,11 +115,12 @@ class _DrawerSideState extends State<SideDrawer> {
               },
             ),
             listTile(
-                iconData: Icons.notifications_outlined, title: "Notificatio"),
-            listTile(iconData: Icons.star_outline, title: "Rating & Review"),
+                iconData: Icons.notifications_outlined, title: "Thông báo"),
+            listTile(
+                iconData: Icons.star_outline, title: "Đánh giá và bình luận"),
             listTile(
                 iconData: Icons.favorite_outline,
-                title: "Wishlist",
+                title: "Danh sách mua sắm",
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
@@ -127,7 +128,7 @@ class _DrawerSideState extends State<SideDrawer> {
                     ),
                   );
                 }),
-            listTile(iconData: Icons.copy_outlined, title: "Raise a Complaint"),
+            listTile(iconData: Icons.copy_outlined, title: "Phản hồi"),
             listTile(iconData: Icons.format_quote_outlined, title: "FAQs"),
             Container(
               height: 350,
@@ -135,17 +136,17 @@ class _DrawerSideState extends State<SideDrawer> {
               child: const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Contact Support"),
+                  Text("Liên hệ hỗ trợ"),
                   SizedBox(
                     height: 10,
                   ),
                   Row(
                     children: [
-                      Text("Call us:"),
+                      Text("Gọi đến:"),
                       SizedBox(
                         width: 10,
                       ),
-                      Text("+923352580282"),
+                      Text("+9412345678"),
                     ],
                   ),
                   SizedBox(
@@ -155,12 +156,12 @@ class _DrawerSideState extends State<SideDrawer> {
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [
-                        Text("Mail us:"),
+                        Text("Gửi Mail:"),
                         SizedBox(
                           width: 10,
                         ),
                         Text(
-                          "assarbaloch5@gmail.com",
+                          "truongb2111871@student.ctu.edu.vn",
                           overflow: TextOverflow.ellipsis,
                         ),
                       ],

@@ -101,7 +101,7 @@ class _ProductOverviewState extends State<ProductOverview> {
               backgroundColor: textColor,
               color: Colors.white70,
               iconColor: Colors.grey,
-              title: "Add To WishList",
+              title: "Thêm vào hàng đợi",
               iconData: wishListBool == false
                   ? Icons.favorite_outline
                   : Icons.favorite,
@@ -125,7 +125,7 @@ class _ProductOverviewState extends State<ProductOverview> {
               backgroundColor: primaryColor,
               color: textColor,
               iconColor: Colors.white70,
-              title: "Go To Cart",
+              title: "Đến giỏ hàng",
               iconData: Icons.shop_outlined,
               onTap: () {
                 Navigator.of(context).push(
@@ -153,7 +153,7 @@ class _ProductOverviewState extends State<ProductOverview> {
                 children: [
                   ListTile(
                     title: Text(widget.productName),
-                    subtitle: const Text("\$50"),
+                    subtitle: const Text("Sản phẩm rẻ bất ngờ"),
                   ),
                   Container(
                       height: 250,
@@ -165,7 +165,7 @@ class _ProductOverviewState extends State<ProductOverview> {
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     width: double.infinity,
                     child: Text(
-                      "Available Options",
+                      "Giá trị đơn hàng",
                       textAlign: TextAlign.start,
                       style: TextStyle(
                         color: textColor,
@@ -198,7 +198,7 @@ class _ProductOverviewState extends State<ProductOverview> {
                             ),
                           ],
                         ),
-                        Text("\$${widget.productPrice}"),
+                        Text("${widget.productPrice} VNĐ"),
                         // TODO: Maybe fix this later
                         Count(
                           productId: widget.productId,
@@ -249,7 +249,7 @@ class _ProductOverviewState extends State<ProductOverview> {
               child: ListView(
                 children: [
                   const Text(
-                    "About This Product",
+                    " Mô tả sản phẩm",
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w600,

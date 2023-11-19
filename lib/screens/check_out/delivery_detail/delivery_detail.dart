@@ -22,7 +22,7 @@ class _DeliveryDetailsState extends State<DeliveryDetails> {
     deliveryAddressProvider.getDeliveryAddressData();
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Delivery Details"),
+        title: const Text("Chi tiết mua hàng"),
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: primaryColor,
@@ -62,14 +62,14 @@ class _DeliveryDetailsState extends State<DeliveryDetails> {
             ),
           ),
           child: deliveryAddressProvider.getDeliveryAddressList.isEmpty
-              ? const Text("Add new Address")
-              : const Text("Payment Summary"),
+              ? const Text("Thêm địa chỉ mới")
+              : const Text("Tổng kết thanh toán"),
         ),
       ),
       body: ListView(
         children: [
           const ListTile(
-            title: Text("Deliver To"),
+            title: Text("Giao tới"),
           ),
           const Divider(
             height: 1,
@@ -78,7 +78,7 @@ class _DeliveryDetailsState extends State<DeliveryDetails> {
               ? Center(
                   child: Container(
                     child: const Center(
-                      child: Text("No Data"),
+                      child: Text("Không có dữ liệu"),
                     ),
                   ),
                 )
@@ -90,7 +90,7 @@ class _DeliveryDetailsState extends State<DeliveryDetails> {
                     });
                     return DeliveryItem(
                       address:
-                          "aera, ${e.aera}, street, ${e.street}, society ${e.scoirty}, pincode ${e.pinCode}",
+                          "Khu vực, ${e.aera}, Đường, ${e.street}, Thành phố ${e.scoirty}, Mã PIN ${e.pinCode}",
                       title: "${e.firstName} ${e.lastName}",
                       number: e.mobileNo,
                       addressType: e.addressType == "AddressTypes.Home"

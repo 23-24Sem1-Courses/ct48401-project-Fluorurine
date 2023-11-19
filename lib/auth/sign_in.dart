@@ -55,9 +55,12 @@ class SignIn extends StatelessWidget {
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text("Sign In to continue"),
                     Text(
-                      "Vegi",
+                      "Đăng nhập để tiếp tục",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "Trường Shop",
                       style: TextStyle(
                           fontSize: 50,
                           color: Colors.white,
@@ -71,6 +74,7 @@ class SignIn extends StatelessWidget {
                     ),
                     SignInButton(
                         buttonType: ButtonType.google,
+                        btnText: "Đăng nhập với Google",
                         onPressed: () async {
                           print("click");
                           try {
@@ -107,15 +111,22 @@ class SignIn extends StatelessWidget {
                     // TODO: If user not null navigate to home page
                     SignInButton(
                         buttonType: ButtonType.facebook,
+                        btnText: "Đăng nhập Facebook",
                         onPressed: () {
                           print('click');
                         }),
                     Text(
-                      "By signing in you are agreeing to our ",
-                      style: TextStyle(color: Colors.grey[800]),
+                      "Bằng cách đăng nhập bạn đồng ý với",
+                      style: TextStyle(
+                          color: Colors.grey[800], fontWeight: FontWeight.bold),
                     ),
-                    Text("Terms and Privacy Policy",
-                        style: TextStyle(color: Colors.grey[800]))
+                    Text(
+                      "Điều khoản và dịch vụ",
+                      // make this text underline in flutter
+                      style: TextStyle(
+                          color: Colors.grey[800],
+                          decoration: TextDecoration.underline),
+                    )
                   ]),
             )
           ],

@@ -44,7 +44,7 @@ class _SingalProductState extends State<HomeProduct> {
             height: 230,
             width: 165,
             decoration: BoxDecoration(
-              color: const Color(0xffd9dad9),
+              color: const Color.fromARGB(255, 255, 254, 254),
               borderRadius: BorderRadius.circular(10),
             ),
             child: Column(
@@ -75,6 +75,7 @@ class _SingalProductState extends State<HomeProduct> {
                             color: textColor,
                             fontWeight: FontWeight.bold,
                           ),
+                          overflow: TextOverflow.ellipsis,
                         ),
                         Text(
                           '${widget.productPrice}\$/${unitData ?? firstValue}',
